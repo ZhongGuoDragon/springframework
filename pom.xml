@@ -7,7 +7,10 @@
     <version>1.0.0-SNAPSHOP</version>
 <!--    <packaging>jar</packaging>-->
     <name>springframwork</name>
-
+    <packaging>pom</packaging>
+    <modules>
+        <module>/webapp</module>
+    </modules>
 
 
     <properties>

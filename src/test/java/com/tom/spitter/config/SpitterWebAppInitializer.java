@@ -12,6 +12,6 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
         return new Class<?>[]{RootConfig.class};
     }
     protected Class<?>[] getServletConfigClasses(){
-        return new Class<?>[]{Webconfig.class};
+        return new Class<?>[]{WebConfig.class};
     }
 }
