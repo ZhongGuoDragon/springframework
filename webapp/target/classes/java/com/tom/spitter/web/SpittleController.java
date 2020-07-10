@@ -20,12 +20,12 @@ public class SpittleController {
     public SpittleController(SpittleRepository spit) {
         this.spittleRepository = spit;
     }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public String spittles(Model model) {
-        model.addAttribute(spittleRepository.findSpittles(5, 5));
-        return "spittles";
-    }
+//
+//    @RequestMapping(method = RequestMethod.GET)
+//    public String spittles(Model model) {
+//        model.addAttribute(spittleRepository.findSpittles(5, 5));
+//        return "spittles";
+//    }
 
     @RequestMapping(method = RequestMethod.GET, path = {"/a"})
     public String a(Model model) {
@@ -38,7 +38,7 @@ public class SpittleController {
         model.put("spittleList", spittleRepository.findSpittles(20, 20));
         return "spittles";
     }
-    @RequestMapping(method=RequestMethod.GET,path={"/c"})
+    @RequestMapping(method=RequestMethod.GET)
     public List<Spittle> c() {
         return spittleRepository.findSpittles(30, 30);
     }
