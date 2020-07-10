@@ -12,7 +12,6 @@
         <module>/webapp</module>
     </modules>
 
-
     <properties>
         <!-- 版本可以自己选择 -->
         <spring.version>4.2.5.RELEASE</spring.version>
@@ -139,6 +138,7 @@
                 <directory>src/test</directory>
             </resource>
         </resources>
+
 
 </build>
 

@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springframwork" />
+        <module name="webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="hello-word" target="1.5" />
       <module name="springframwork" target="1.5" />
+      <module name="webapp" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
