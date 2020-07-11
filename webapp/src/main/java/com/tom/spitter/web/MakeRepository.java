@@ -13,19 +13,14 @@ public class MakeRepository implements SpittleRepository {
     private List<Spittle> spittles;
     public MakeRepository() {
         spittles = new ArrayList<Spittle>();
-        int m = (int) (Math.random() * 1000);
+        int m = 0;
         for (int i =m; i < m+100; i++) {
-            spittles.add(new Spittle("Spittle" + i, new Date()));
+            spittles.add(new Spittle((long)i,"Spittle"+i,new Date(),0.0,0.00));
         }
     }
 
     public List<Spittle> findSpittles(long max, int count) {
-        MakeRepository m = new MakeRepository();
 
-        int intmax=(int) max;
-        if (intmax + count < m.spittles.size()) {
-            count=m.spittles.size()-intmax-2;
-        }
-        return m.spittles.subList(intmax, intmax + count);
+        return this.spittles.subList((int)max,count);
     }
 }

@@ -12,16 +12,18 @@ public class Spittle {
     private Double latitude;
     private Double longitude;
 
-    public Spittle(String message, Date time) {
-        this(message,time,0.0,0.0);
+    public Spittle(Long id,String message, Date time) {
+        this(id,message,time,0.0,0.0);
     }
 
-    public Spittle(String message, Date time, Double longitude, Double latitude) {
+
+
+    public Spittle(long id,String message, Date time, Double longitude, Double latitude) {
 //        try {
 //            Thread.sleep(100);
 //        } catch (InterruptedException ex) {
 //        };
-        this.id = null;
+        this.id = id;
         this.message = message;
         this.time = time;
         this.longitude = longitude;
