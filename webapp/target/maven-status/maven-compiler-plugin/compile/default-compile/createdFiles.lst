@@ -1,8 +1,12 @@
 com\tom\spitter\web\HomeController.class
 com\tom\spitter\config\SpitterWebAppInitializer.class
+com\tom\spitter\web\spittleNotFoundException.class
 com\tom\spitter\config\RootConfig.class
 com\tom\spitter\web\MakeRepository.class
 com\tom\spitter\web\SpittleController.class
+com\tom\spitter\web\myServlet.class
 com\tom\spitter\data\SpittleRepository.class
+com\tom\spitter\web\DuplicateSpittleException.class
+com\tom\spitter\config\MyServletInitializer.class
 com\tom\spitter\Spittle.class
 com\tom\spitter\config\WebConfig.class
