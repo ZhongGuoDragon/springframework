@@ -9,6 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -105,7 +106,7 @@ public class SpittleController {
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
     public String doResult(@PathVariable int id, Model model) {
 
-        model.addAttribute("spittle", spittleRepository.get(id));
+        model.addAttribute("spittle", spittleRepository.find(id));
         return "result";
 
     }
@@ -170,15 +171,28 @@ public class SpittleController {
     }
 
     @RequestMapping(path = "/save", method = RequestMethod.POST)
-    public String savePost(Spittle spittle) {
-        spittleRepository.add(spittle);
+    public String savePost(Spittle spittle, RedirectAttributes model) {
+        model.addFlashAttribute(spittle);
+        return "redirect:/spittles/saves";
+//        long id = spittle.getId();
+//        String name = spittle.getMessage();
+//        model.addAttribute("id", id);
+//        model.addAttribute("name", name);
+//        return "redirect:/spittles/{id}";
+//        spittleRepository.add(spittle);
+//        return "result";
+    }
+
+    @RequestMapping(path = "saves", method = RequestMethod.GET)
+    public String saves() {
+        System.out.println("saves");
         return "result";
     }
 
-    @ExceptionHandler(DuplicateSpittleException.class)
-    public String wrong(Throwable e,Model model) {
-        model.addAttribute("she", e);
-        System.out.println(e.getMessage());
-        return "wrong";
-    }
+//    @ExceptionHandler(DuplicateSpittleException.class)
+//    public String wrong(Throwable e,Model model) {
+//        model.addAttribute("she", e);
+//        System.out.println(e.getMessage());
+//        return "wrong";
+//    }
 }
