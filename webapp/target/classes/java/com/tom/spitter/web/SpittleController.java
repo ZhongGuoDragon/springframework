@@ -69,9 +69,10 @@ public class SpittleController {
 //        model.addAttribute(spittleRepository.findSpittles(0, spittleid));
 //        return "spittles";
 //    }
-    @RequestMapping(method = RequestMethod.GET, path = "/view")
-    public String spittlespath(int spittleid, Model model) {
+    @RequestMapping(method = RequestMethod.GET, path = "/view/{spittleid}")
+    public String spittlespath(@PathVariable int spittleid, Model model) {
         model.addAttribute(spittleRepository.findSpittles(0, spittleid));
+
         return "spittles";
     }
 
@@ -183,16 +184,32 @@ public class SpittleController {
 //        return "result";
     }
 
-    @RequestMapping(path = "saves", method = RequestMethod.GET)
+    @RequestMapping(path = "/saves", method = RequestMethod.GET)
     public String saves() {
         System.out.println("saves");
         return "result";
     }
 
+    @RequestMapping(path = "/login", method = RequestMethod.GET)
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public String loginsuccess() {
+        return "result";
+    }
 //    @ExceptionHandler(DuplicateSpittleException.class)
 //    public String wrong(Throwable e,Model model) {
 //        model.addAttribute("she", e);
 //        System.out.println(e.getMessage());
 //        return "wrong";
 //    }
+
+    @RequestMapping(path = "/get/ip", method = RequestMethod.GET)
+    public String ip(HttpServletRequest request) {
+        String s = request.getRemoteAddr();
+        System.out.println(s);
+        return null;
+    }
 }
