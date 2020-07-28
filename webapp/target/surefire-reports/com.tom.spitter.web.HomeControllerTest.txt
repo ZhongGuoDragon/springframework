@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.tom.spitter.web.HomeControllerTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.156 sec <<< FAILURE!
-testHomePage(com.tom.spitter.web.HomeControllerTest)  Time elapsed: 1.028 sec  <<< FAILURE!
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.782 sec <<< FAILURE!
+testHomePage(com.tom.spitter.web.HomeControllerTest)  Time elapsed: 0.688 sec  <<< FAILURE!
 java.lang.AssertionError: No ModelAndView found
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:72)

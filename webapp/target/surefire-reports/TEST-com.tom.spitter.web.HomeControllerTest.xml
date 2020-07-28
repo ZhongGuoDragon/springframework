@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="1" name="com.tom.spitter.web.HomeControllerTest" time="1.028" errors="0" skipped="0">
+<testsuite tests="1" failures="1" name="com.tom.spitter.web.HomeControllerTest" time="0.688" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="D:\jdk\jre\bin"/>
@@ -25,10 +25,10 @@
     <property name="line.separator" value="
 "/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="mavne.test.skip" value="true"/>
     <property name="user.variant" value=""/>
     <property name="os.name" value="Windows 10"/>
     <property name="classworlds.conf" value="D:\apache-maven-3.6.3\bin\..\bin\m2.conf"/>
-    <property name="maven.test.skip" value="true\"/>
     <property name="sun.jnu.encoding" value="GBK"/>
     <property name="java.library.path" value="D:\jdk\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;D:\jdk\bin;D:\apache-maven-3.6.3\bin;D:\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;."/>
     <property name="maven.conf" value="D:\apache-maven-3.6.3\bin\../conf"/>
@@ -47,7 +47,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="D:\jdk\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package -Dmaven.test.skip=true\"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher package -Dmavne.test.skip=true"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="zh"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -66,7 +66,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.tom.spitter.web.HomeControllerTest" name="testHomePage" time="1.028">
+  <testcase classname="com.tom.spitter.web.HomeControllerTest" name="testHomePage" time="0.688">
     <failure message="No ModelAndView found" type="java.lang.AssertionError">java.lang.AssertionError: No ModelAndView found
 	at org.springframework.test.util.AssertionErrors.fail(AssertionErrors.java:39)
 	at org.springframework.test.util.AssertionErrors.assertTrue(AssertionErrors.java:72)
@@ -103,21 +103,21 @@
 	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:115)
 	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:75)
 </failure>
-    <system-err>七月 17, 2020 8:26:03 下午 org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+    <system-err>七月 24, 2020 10:07:55 下午 org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
 信息: Mapped &quot;{[/spittless],methods=[GET]}&quot; onto public java.lang.String com.tom.spitter.web.HomeController.home()
-七月 17, 2020 8:26:03 下午 org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+七月 24, 2020 10:07:55 下午 org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
 信息: Mapped &quot;{[/123],methods=[GET]}&quot; onto public java.lang.String com.tom.spitter.web.HomeController.hh()
-七月 17, 2020 8:26:03 下午 org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
+七月 24, 2020 10:07:55 下午 org.springframework.test.web.servlet.setup.StandaloneMockMvcBuilder$StaticRequestMappingHandlerMapping register
 信息: Mapped &quot;{[/home],methods=[GET]}&quot; onto public java.lang.String com.tom.spitter.web.HomeController.hhh()
-七月 17, 2020 8:26:03 下午 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
-信息: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@5474c6c
-七月 17, 2020 8:26:03 下午 org.springframework.mock.web.MockServletContext log
+七月 24, 2020 10:07:56 下午 org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter initControllerAdviceCache
+信息: Looking for @ControllerAdvice: org.springframework.test.web.servlet.setup.StubWebApplicationContext@7bb11784
+七月 24, 2020 10:07:56 下午 org.springframework.mock.web.MockServletContext log
 信息: Initializing Spring FrameworkServlet &apos;&apos;
-七月 17, 2020 8:26:03 下午 org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+七月 24, 2020 10:07:56 下午 org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
 信息: FrameworkServlet &apos;&apos;: initialization started
-七月 17, 2020 8:26:03 下午 org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
-信息: FrameworkServlet &apos;&apos;: initialization completed in 6 ms
-七月 17, 2020 8:26:03 下午 org.springframework.web.servlet.PageNotFound noHandlerFound
+七月 24, 2020 10:07:56 下午 org.springframework.test.web.servlet.TestDispatcherServlet initServletBean
+信息: FrameworkServlet &apos;&apos;: initialization completed in 16 ms
+七月 24, 2020 10:07:56 下午 org.springframework.web.servlet.PageNotFound noHandlerFound
 警告: No mapping found for HTTP request with URI [/] in DispatcherServlet with name &apos;&apos;
 </system-err>
   </testcase>

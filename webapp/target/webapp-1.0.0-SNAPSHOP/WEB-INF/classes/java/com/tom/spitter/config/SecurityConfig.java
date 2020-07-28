@@ -24,7 +24,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        http.requiresChannel().antMatchers("/spittles/form").requiresSecure();
 
         http.authorizeRequests().antMatchers("/spittles/register").hasRole("ADMIN").anyRequest().permitAll().and().formLogin()
-                .defaultSuccessUrl("/spittles/view").and().logout().logoutSuccessUrl("/spittles/find/1").logoutUrl("/spittles/register").and().csrf().disable();
+                .defaultSuccessUrl("/spittles/view").and().logout().logoutSuccessUrl("/spittles/find/1").logoutUrl("/spittles/logout").and().csrf().disable();
 //        http
 //                .authorizeRequests()
 //                .anyRequest().authenticated()

@@ -19,6 +19,9 @@
     longitude:<input type="text" name="longitude"/><br>
     latitude:<input type="text" name="latitude"/><br>
     <input type="submit" value="Register"/>
+    <input type="text" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+
 </form>
+<%@ include file="result.jsp" %>
 </body>
 </html>

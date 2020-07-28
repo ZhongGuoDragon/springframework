@@ -3,6 +3,10 @@ package com.tom.spitter.web;
 import com.tom.spitter.Spittle;
 import com.tom.spitter.data.SpittleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -11,11 +15,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
-import java.util.List;
-import java.util.Map;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.*;
 
 @Controller
 @RequestMapping("/spittles")
@@ -101,7 +107,7 @@ public class SpittleController {
 //        System.out.println(spittle.getId());
         spittleRepository.save(spittle);
 //        return "index";
-        return "redirect:/spittles/" + spittle.getId();
+        return "redirect:/spittles/register";
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/{id}")
@@ -208,8 +214,63 @@ public class SpittleController {
 
     @RequestMapping(path = "/get/ip", method = RequestMethod.GET)
     public String ip(HttpServletRequest request) {
+        System.out.println(new Date());
         String s = request.getRemoteAddr();
         System.out.println(s);
         return null;
+    }
+
+//    @RequestMapping(path="/data",method = RequestMethod.GET)
+//    public String doData() {
+//        main(null);
+//        return null;
+//    }
+//
+//    @Autowired
+//    public JdbcTemplate je;
+//
+//    public  void main(String[] args) {
+//        je.query("SHOW DATABASES;", new RowCallbackHandler() {
+//            public void processRow(ResultSet rs) throws SQLException {
+//
+//            }
+//        });
+//    }
+
+    @Autowired
+    JdbcOperations js;
+
+    @RequestMapping(path = "/go", method = RequestMethod.GET)
+    public String doGo(HttpServletRequest servletRequest,Model model) {
+        if (servletRequest.getParameter("submit") == null) {
+            return "go";
+        }
+        int i = Integer.valueOf(servletRequest.getParameter("count"));
+        String message = servletRequest.getParameter("message");
+        long date = new Date(servletRequest.getParameter("date")).getTime();
+        double longitude = Double.valueOf(servletRequest.getParameter("longitude"));
+        double latitude = Double.valueOf(servletRequest.getParameter("latitude"));
+        System.out.println(message + " " + date + " " + longitude + " " + latitude);
+        String sql = "INSERT INTO crashcourse.spittles(id,message,time,longitude,latitude)VALUES" +
+                "(?,?,?,?,?)";
+
+        for (int n = 0; n < i; n++) {
+            Map<String, Object> paraMap = new HashMap<String, Object>();
+            paraMap.put("id", null);
+            paraMap.put("time", new Date(date));
+            date = date + 86400*n;
+            paraMap.put("longitude", longitude);
+            longitude = longitude + 2;
+            paraMap.put("latitude", latitude);
+            latitude = longitude + latitude;
+            js.update(sql, null, message, new Date(date), longitude, latitude);
+        }
+
+        System.out.println(new Date(date));
+
+        sql = "SELECT * FROM crashcourse.spittles LIMIT 0,?";
+        List<Spittle> spittleList = js.query(sql, new BeanPropertyRowMapper<Spittle>(Spittle.class),i);
+        model.addAttribute("spittleList", spittleList);
+        return "go";
     }
 }
