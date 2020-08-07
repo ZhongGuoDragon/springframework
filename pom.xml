@@ -1,6 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tom</groupId>
     <artifactId>springframwork</artifactId>
@@ -8,13 +7,11 @@
 <!--    <packaging>jar</packaging>-->
     <name>springframwork</name>
     <packaging>pom</packaging>
-    <modules>
-        <module>/webapp</module>
-    </modules>
+
 
     <properties>
         <!-- 版本可以自己选择 -->
-        <spring.version>4.2.5.RELEASE</spring.version>
+        <spring.version>4.2.9.RELEASE</spring.version>
 <!--        <spring.version>4.0.0.RELEASE</spring.version>-->
     </properties>
     <dependencies>
@@ -132,14 +129,16 @@
 
     </plugins>
 
-        <!-- resources-->
-        <resources>
-            <resource>
-                <directory>src/test</directory>
-            </resource>
-        </resources>
+
+<!--        <resources>-->
+<!--            <resource>-->
+<!--                <directory>src/test</directory>-->
+<!--            </resource>-->
+<!--        </resources>-->
 
 
 </build>
 
+<modules>  <module>myhabits</module>
+  </modules>
 </project>

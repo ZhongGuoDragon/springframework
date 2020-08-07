@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//en"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="jdbc.properties"></properties>
+    <typeAliases>
+        <typeAlias alias="role" type="com.tom.mybatis.pojo.Role"/>
+        <typeAlias type="com.tom.mybatis.db.Spittles" alias="spittles"/>
+    </typeAliases>
+    <typeHandlers>
+        <typeHandler handler="com.tom.mybatis.handler.MyStringTypeHandler" />
+        <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"
+                     javaType="com.tom.mybatis.pojo.Sex"/>
+        <typeHandler handler="com.tom.mybatis.handler.SexEnumTyperHandler" javaType="com.tom.mybatis.pojo.Sex"
+        jdbcType="INTEGER"/>
+    </typeHandlers>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+                <property name="autoCommit" value="false"/>
+            </transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url"
+                          value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="RoleMapper.xml"/>
+        <mapper resource="SpittlesMapper.xml"/>
+        <mapper resource="Student.xml"/>
+        <mapper resource="StudentCard.xml"/>
+        <mapper resource="Lecture.xml"/>
+        <mapper resource="LectureScore.xml"/>
+        <mapper resource="HealthMale.xml"/>
+        <mapper resource="HealthFemale.xml"/>
+    </mappers>
+</configuration>
+<!--<configuration>-->
+<!--    <typeAliases>-->
+<!--        <typeAlias type="com.tom.mybatis.db.Spittles" alias="Spittles"/>-->
+<!--        <typeAlias alias="role" type="com.tom.mybatis.pojo.Role"/>-->
+<!--    </typeAliases>-->
+<!--    <environments default="development">-->
+<!--        <environment id="development">-->
+<!--            <transactionManager type="JDBC"></transactionManager>-->
+<!--            <dataSource type="POOLED">-->
+<!--                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>-->
+<!--                <property name="url"-->
+<!--                          value="jdbc:mysql://localhost:3306/crashcourse?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf-8"/>-->
+<!--                <property name="username" value="user"/>-->
+<!--                <property name="password" value="Abc123456"/>-->
+<!--            </dataSource>-->
+<!--        </environment>-->
+<!--    </environments>-->
+<!--    <mappers>-->
+<!--        <mapper resource="RoleMapper.xml"/>-->
+<!--    </mappers>-->
+<!--</configuration>-->

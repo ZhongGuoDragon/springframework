@@ -1,7 +1,10 @@
 package com.tom.spitter.web;
 
 import com.tom.spitter.Spittle;
+import com.tom.spitter.data.JpaSpitterRepository;
 import com.tom.spitter.data.SpittleRepository;
+import com.tom.spitter.db.DataRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcOperations;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -239,6 +243,8 @@ public class SpittleController {
 
     @Autowired
     JdbcOperations js;
+//    @Autowired
+//    DataRepository jpa;
 
     @RequestMapping(path = "/go", method = RequestMethod.GET)
     public String doGo(HttpServletRequest servletRequest,Model model) {
@@ -251,7 +257,7 @@ public class SpittleController {
         double longitude = Double.valueOf(servletRequest.getParameter("longitude"));
         double latitude = Double.valueOf(servletRequest.getParameter("latitude"));
         System.out.println(message + " " + date + " " + longitude + " " + latitude);
-        String sql = "INSERT INTO crashcourse.spittles(id,message,time,longitude,latitude)VALUES" +
+        String sql = "INSERT INTO spittles(id,message,time,longitude,latitude)VALUES" +
                 "(?,?,?,?,?)";
 
         for (int n = 0; n < i; n++) {
@@ -268,9 +274,14 @@ public class SpittleController {
 
         System.out.println(new Date(date));
 
-        sql = "SELECT * FROM crashcourse.spittles LIMIT 0,?";
+        sql = "SELECT * FROM spittles LIMIT 0,?";
         List<Spittle> spittleList = js.query(sql, new BeanPropertyRowMapper<Spittle>(Spittle.class),i);
         model.addAttribute("spittleList", spittleList);
+//        new JpaSpitterRepository().addSpitter(i);
+//        System.out.println(spittleList.get(0));
+//        new JpaSpitterRepository().addSpitter(spittleList.get(0));
+//        new JpaSpitterRepository().addSpitter(new Spittle(999999999,null,null,null,null));
+//        System.out.println(jpa.findById(100l));
         return "go";
     }
 }

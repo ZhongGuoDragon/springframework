@@ -26,14 +26,14 @@ public class MakeRepository implements SpittleRepository<Spittle> {
     private List<Spittle> spittles;
     private JdbcOperations jdbcOperations;
     private NamedParameterJdbcOperations namedjdbcOperation;
-//    @Lazy
+    @Lazy
     @Bean
     public DataSource datasource() {
         DriverManagerDataSource ds = new DriverManagerDataSource();
         ds.setDriverClassName("com.mysql.cj.jdbc.Driver");
         ds.setUrl("jdbc:mysql://localhost:3306/crashcourse?useSSL=false&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8");
-        ds.setUsername("user");
-        ds.setPassword("Abc123456");
+        ds.setUsername("root");
+        ds.setPassword("123456");
         return ds;
     }
 
@@ -52,6 +52,9 @@ public class MakeRepository implements SpittleRepository<Spittle> {
     public MakeRepository(JdbcOperations jdbcOperations,NamedParameterJdbcTemplate namedjdbcOperation) {
         this.jdbcOperations = jdbcOperations;
         this.namedjdbcOperation = namedjdbcOperation;
+
+
+
     }
 //    public MakeRepository() {
 //        saves = new ArrayList<Spittle>();

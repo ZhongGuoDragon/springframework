@@ -8,6 +8,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
@@ -44,7 +45,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
 
-
+    @Bean
+    public PersistenceAnnotationBeanPostProcessor postProcessor() {
+        return new PersistenceAnnotationBeanPostProcessor();
+    }
 
 
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.mybatis.mapper.StudentMapper">
+    <resultMap id="student" type="com.tom.mybatis.pojo.Student">
+        <id property="id" column="id"/>
+        <result property="cnname" column="cnname"/>
+        <result property="sex" column="sex" typeHandler="org.apache.ibatis.type.EnumOrdinalTypeHandler"/>
+        <association property="studentCard" column="selfcard_no"
+                     select="com.tom.mybatis.mapper.StudentCardMapper.getStudentCardById"/>
+        <collection property="lectureScores" column="selfcard_no"
+                    select="com.tom.mybatis.mapper.LectureScoreMapper.getLectureScore"/>
+        <discriminator javaType="int" column="sex">
+            <case value="0" resultMap="healthmale"></case>
+            <case value="1" resultMap="healthfemale"/>
+        </discriminator>
+    </resultMap>
+    <resultMap id="healthmale" type="com.tom.mybatis.pojo.HealthMale">
+        <association property="healthMale" column="id" select="com.tom.mybatis.mapper.HealthMaleMapper.getHealthMale"/>
+    </resultMap>
+    <resultMap id="healthfemale" type="com.tom.mybatis.pojo.HealthFemale">
+        <association property="healthFemale" column="id" select="com.tom.mybatis.mapper.HealthFemaleMapper.getHealthFemale"/>
+    </resultMap>
+
+    <select id="getStudent" parameterType="int" resultMap="student">
+        SELECT id,cnname,sex,selfcard_no FROM t_student where id=#{id}
+    </select>
+</mapper>

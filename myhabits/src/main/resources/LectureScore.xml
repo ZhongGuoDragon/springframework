@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.mybatis.mapper.LectureScoreMapper">
+    <resultMap id="lecturescore" type="com.tom.mybatis.pojo.LectureScore">
+        <id property="id" column="id"/>
+        <result property="student_id" column="student_id"/>
+        <result property="score" column="score"/>
+        <association property="lecture" column="lecture_id" select="com.tom.mybatis.mapper.LectureMapper.getLecture">
+        </association>
+    </resultMap>
+    <select id="getLectureScore" parameterType="int" resultMap="lecturescore">
+        SELECT * FROM t_lecture_score WHERE student_id=#{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.mybatis.mapper.StudentCardMapper">
+    <resultMap id="studentcard" type="com.tom.mybatis.pojo.StudentCard">
+        <id property="id" column="id"/>
+        <result property="student_id" column="student_id"/>
+        <result property="_native" column="native"/>
+    </resultMap>
+    <select id="getStudentCardById" parameterType="int" resultMap="studentcard" >
+        SELECT id,student_id,native FROM t_student_selfcard WHERE student_id=#{id}
+    </select>
+</mapper>
