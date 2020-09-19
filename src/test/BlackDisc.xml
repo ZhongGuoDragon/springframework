@@ -7,7 +7,7 @@
        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean class="com.tom.concert.BlankDisc" id="blankDisc" autowire="byType">
+    <bean class="BlankDisc" id="blankDisc" autowire="byType">
         <property name="artist">
             <list>
                 <value>zhangsan</value>
@@ -30,9 +30,9 @@
             </list>
         </property>
     </bean>
-<!--    <bean class="com.tom.concert.TrackCounter" id="counter"></bean>-->
+<!--    <bean class="TrackCounter" id="counter"></bean>-->
 <!--    <aop:config>-->
-<!--        <aop:pointcut id="counterasp" expression="execution(* com.tom.concert.BlankDisc.playTrack(int)) and args(num)"/>-->
+<!--        <aop:pointcut id="counterasp" expression="execution(* BlankDisc.playTrack(int)) and args(num)"/>-->
 <!--        <aop:aspect ref="counter">-->
 <!--            <aop:before method="addTrack" pointcut-ref="counterasp" arg-names="num"></aop:before>-->
 <!--        </aop:aspect>-->

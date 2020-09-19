@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="springexcel:war">
+    <output-path>$PROJECT_DIR$/springexcel/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>springexcel</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="springexcel-1.0.war">
+      <element id="artifact" artifact-name="springexcel:war exploded" />
+    </root>
+  </artifact>
+</component>

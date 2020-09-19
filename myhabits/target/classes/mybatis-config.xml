@@ -12,7 +12,7 @@
         <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler"
                      javaType="com.tom.mybatis.pojo.Sex"/>
         <typeHandler handler="com.tom.mybatis.handler.SexEnumTyperHandler" javaType="com.tom.mybatis.pojo.Sex"
-        jdbcType="INTEGER"/>
+                     jdbcType="INTEGER"/>
     </typeHandlers>
     <environments default="development">
         <environment id="development">
@@ -41,8 +41,8 @@
 </configuration>
 <!--<configuration>-->
 <!--    <typeAliases>-->
-<!--        <typeAlias type="com.tom.mybatis.db.Spittles" alias="Spittles"/>-->
-<!--        <typeAlias alias="role" type="com.tom.mybatis.pojo.Role"/>-->
+<!--        <typeAlias type="Spittles" alias="Spittles"/>-->
+<!--        <typeAlias alias="role" type="Role"/>-->
 <!--    </typeAliases>-->
 <!--    <environments default="development">-->
 <!--        <environment id="development">-->

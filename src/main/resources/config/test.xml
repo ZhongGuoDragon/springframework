@@ -4,11 +4,11 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/context">
-<!--    <bean class="com.tom.soundsystem.SgtPeppers" id="compactdisc"></bean>-->
-<!--    <bean class="com.tom.soundsystem.CDPlayer" id="cdplayer">-->
+<!--    <bean class="SgtPeppers" id="compactdisc"></bean>-->
+<!--    <bean class="CDPlayer" id="cdplayer">-->
 <!--        <constructor-arg ref="compactdisc"></constructor-arg>-->
 <!--    </bean>-->
-    <bean id="blankdisc" class="com.tom.soundsystem.BlankDisc">
+    <bean id="blankdisc" class="BlankDisc">
         <constructor-arg value="11111"/>
         <constructor-arg value="22222222222"/>
     </bean>

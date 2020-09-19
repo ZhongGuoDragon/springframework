@@ -9,8 +9,8 @@
        http://www.springframework.org/schema/util/spring-util.xsd"
 >
 
-<!--    <bean class="com.tom.soundsystem.SgtPeppers" id="compactdisc"></bean>-->
-<!--    <bean class="com.tom.soundsystem.CDPlayer" id="cdplayer">-->
+<!--    <bean class="SgtPeppers" id="compactdisc"></bean>-->
+<!--    <bean class="CDPlayer" id="cdplayer">-->
 <!--        <constructor-arg ref="compactdisc"></constructor-arg>-->
 <!--    </bean>-->
     <util:list id="tracklist">
@@ -18,19 +18,19 @@
         <value>2</value>
         <value>3</value>
     </util:list>
-    <bean class="com.tom.soundsystem.CDPlayerConfig"></bean>
-<!--    <bean id="blankdisc" class="com.tom.soundsystem.BlankDisc"-->
+    <bean class="CDPlayerConfig"></bean>
+<!--    <bean id="blankdisc" class="BlankDisc"-->
 <!--    p:title="bbbbbbbbbb" p:artist="aaaaaaaa" p:list-ref="tracklist"-->
 <!--    >-->
 <!--        <constructor-arg value="11111"/>-->
 <!--        <constructor-arg value="22222222222"/>-->
 <!--    </bean>-->
-    <bean class="com.tom.soundsystem.CDPlayerConfig"></bean>
-<!--    <bean id="sgtpeppers" class="com.tom.soundsystem.SgtPeppers"></bean>-->
-<!--    <bean id="cdplayer" class="com.tom.soundsystem.CDPlayer">-->
+    <bean class="CDPlayerConfig"></bean>
+<!--    <bean id="sgtpeppers" class="SgtPeppers"></bean>-->
+<!--    <bean id="cdplayer" class="CDPlayer">-->
 <!--        <constructor-arg ref="sgtpeppers"></constructor-arg>-->
 <!--    </bean>-->
-    <bean id="reddisc" class="com.tom.soundsystem.ResDisc">
+    <bean id="reddisc" class="ResDisc">
         <property name="title" value="zhangsan"/>
         <property name="artist" value="lisi"/>
         <property name="tracks" >

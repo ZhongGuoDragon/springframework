@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="webapp" />
+        <module name="springexcel" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com.tom.myhabits" target="1.5" />
       <module name="hello-word" target="1.5" />
+      <module name="springexcel" target="1.5" />
       <module name="springframwork" target="1.5" />
       <module name="webapp" target="1.5" />
     </bytecodeTargetLevel>

@@ -37,7 +37,7 @@
     </insert>
 <!--    <resultMap id="roleMap" type="role">-->
 <!--        <id column="id" property="id" javaType="long" jdbcType="BIGINT"/>-->
-<!--        <result column="message" typeHandler="com.tom.mybatis.handler.MyStringTypeHandler" property="text"/>-->
+<!--        <result column="message" typeHandler="MyStringTypeHandler" property="text"/>-->
 <!--        <result column="time" property="time" />-->
 <!--    </resultMap>-->
 <!--    <select id="getRole" parameterType="long" resultMap="roleMap">-->

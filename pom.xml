@@ -140,5 +140,6 @@
 </build>
 
 <modules>  <module>myhabits</module>
+    <module>springexcel</module>
   </modules>
 </project>

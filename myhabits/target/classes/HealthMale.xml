@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.mybatis.mapper.HealthMaleMapper">
+    <resultMap id="healthmale" type="com.tom.mybatis.pojo.HealthMale">
+        <id property="id" column="id"/>
+        <result property="student_id" column="student_id"/>
+        <result property="prostate" column="prostate"/>
+    </resultMap>
+    <select id="getHealthMale" resultType="int" resultMap="healthmale">
+        SELECT * FROM t_student_health_male WHERE student_id=#{student_id};
+    </select>
+</mapper>

@@ -200,7 +200,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
             <configuration>
-                <outputDirectory>D:\apache-tomcat-9.0.35\webapps</outputDirectory>
+                <outputDirectory>/var/lib/tomcat9/webapps</outputDirectory>
             </configuration>
         </plugin>
 

@@ -1,15 +1,11 @@
 package com.tom.spitter.web;
 
-import com.tom.spitter.Spittle;
-import com.tom.spitter.data.JpaSpitterRepository;
 import com.tom.spitter.data.SpittleRepository;
-import com.tom.spitter.db.DataRepository;
+import com.tom.spitter.Spittle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcOperations;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -18,13 +14,9 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.io.File;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
 
 @Controller

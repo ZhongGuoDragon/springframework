@@ -1,7 +1,5 @@
 package com.tom.spitter.data;
 
-import com.tom.spitter.Spittle;
-
 import java.util.List;
 
 public interface SpittleRepository<E> {

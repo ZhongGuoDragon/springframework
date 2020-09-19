@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.springexcel.mapper.FormatMapper">
+    <select id="selectData" resultMap="formData">
+        select zh,mm,grwz,sr,hys,ipdz,zcsj,zhhc,addtime from excel_schema.t_excel_c
+        limit #{begin},#{end }
+    </select>
+    <resultMap id="formData" type="com.tom.springexcel.pojo.Format">
+        <result property="zh" column="zh"/>
+        <result property="mm" column="mm"/>
+        <result property="grwz" column="grwz"/>
+        <result property="sr" column="sr"/>
+        <result property="hys" column="hys"/>
+        <result property="ipdz" column="ipdz"/>
+        <result property="zcsj" column="zcsj"/>
+        <result property="zhhc" column="zhhc"/>
+        <result property="addtime" column="addtime"/>
+    </resultMap>
+    <insert id="insertData" useGeneratedKeys="true">
+        insert excel_schema.t_excel_c(zh,mm,grwz,sr,hys,ipdz,zcsj,zhhc,addtime) values(
+        #{zh},#{mm},#{grwz},#{sr},#{hys},#{ipdz},#{zcsj},#{zhhc},#{addtime}
+        )
+    </insert>
+    <insert id="insertDataList" useGeneratedKeys="true">
+        insert excel_schema.t_excel_c(zh,mm,grwz,sr,hys,ipdz,zcsj,zhhc,addtime) values
+        <foreach collection="list" item="list" separator=",">
+            (#{list.zh},#{list.mm},#{list.grwz},#{list.sr},#{list.hys},#{list.ipdz},#{list.zcsj},#{list.zhhc},#{list.addtime})
+        </foreach>
+    </insert>
+</mapper>

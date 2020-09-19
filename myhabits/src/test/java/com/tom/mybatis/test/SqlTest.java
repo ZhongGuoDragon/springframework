@@ -1,10 +1,10 @@
 package com.tom.mybatis.test;
 
 import com.tom.mybatis.config.SqlSessionBuilder;
-import com.tom.mybatis.mapper.*;
+import com.tom.mybatis.mapper.HealthMaleMapper;
+import com.tom.mybatis.mapper.RoleMapper;
 import com.tom.mybatis.pojo.Role;
 import com.tom.mybatis.pojo.Sex;
-import com.tom.mybatis.pojo.Student;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 import org.junit.runner.RunWith;

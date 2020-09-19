@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tom.springexcel.mapper.OriginalMapper">
+
+    <insert id="insertData" useGeneratedKeys="true" >
+        insert excel_schema.t_excel_o(data,addtime) values(#{data},#{addtime})
+    </insert>
+
+    <insert id="insertDataList" useGeneratedKeys="true">
+        insert excel_schema.t_excel_o(data,addtime) values
+        <foreach collection="list" item="originals" index="" separator=",">
+            (#{originals.data},#{originals.addtime})
+        </foreach>
+    </insert>
+
+    <select id="selectData" resultMap="dataMap">
+        select data,addtime from excel_schema.t_excel_o limit #{begin},#{end}
+    </select>
+    <resultMap id="dataMap" type="com.tom.springexcel.pojo.Original">
+        <result property="data" column="data"/>
+        <result property="addtime" column="addtime"/>
+    </resultMap>
+</mapper>

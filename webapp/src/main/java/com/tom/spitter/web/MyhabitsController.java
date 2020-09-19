@@ -1,8 +1,8 @@
 package com.tom.spitter.web;
 
+import com.tom.spitter.pojo.SpittlesForm;
 import com.tom.spitter.db.Spittles;
 import com.tom.spitter.db.SpittlesMapper;
-import com.tom.spitter.pojo.SpittlesForm;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ public class MyhabitsController {
         return "form";
     }
     @RequestMapping(path="/getspittles/{hh}",method = RequestMethod.GET)
-    public String getSpittlers(Model model,SpittlesForm form) {
+    public String getSpittlers(Model model, SpittlesForm form) {
         if(form==null){
             return "form";}
         SpittlesMapper mapper=sqlSession.getMapper(SpittlesMapper.class);
