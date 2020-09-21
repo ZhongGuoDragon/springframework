@@ -1,13 +1,17 @@
 package com.tom.springexcel.pojo;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+
 import java.util.Date;
 
 public class Original {
+    @ExcelProperty(index = 0)
     private String data;
+
     private Date addtime;
 
     public Original() {
-        this(null, null);
+        this(null, new Date());
     }
 
     public Original(String data, Date addtime) {

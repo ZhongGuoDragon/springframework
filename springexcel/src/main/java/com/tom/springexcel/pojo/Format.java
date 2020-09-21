@@ -9,21 +9,24 @@ public class Format {
     private String sr;
     private String hys;
     private String ipdz;
+    private String cywz;
     private String zcsj;
     private String zhhc;
     private Date addtime;
 
     public Format() {
+        addtime = new Date();
 
     }
 
-    public Format(String zh, String mm, String grwz, String sr, String hys, String ipdz, String zcsj, String zhhc, Date addtime) {
+    public Format(String zh, String mm, String grwz, String sr, String hys, String ipdz, String cywz,String zcsj, String zhhc, Date addtime) {
         this.zh = zh;
         this.mm = mm;
         this.grwz = grwz;
         this.sr = sr;
         this.hys = hys;
         this.ipdz = ipdz;
+        this.cywz = cywz;
         this.zcsj = zcsj;
         this.zhhc = zhhc;
         this.addtime = addtime;
@@ -65,6 +68,10 @@ public class Format {
         return zcsj;
     }
 
+    public String getCywz() {
+        return cywz;
+    }
+
     public String getZhhc() {
         return zhhc;
     }
@@ -87,6 +94,10 @@ public class Format {
 
     public void setSr(String sr) {
         this.sr = sr;
+    }
+
+    public void setCywz(String cywz) {
+        this.cywz = cywz;
     }
 
     public void setZcsj(String zcsj) {

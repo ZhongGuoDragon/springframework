@@ -1,6 +1,9 @@
 package com.tom.springexcel.web;
 
 import com.tom.springexcel.config.WebConfig;
+import com.tom.springexcel.pojo.Format;
+import com.tom.springexcel.pojo.Original;
+import com.tom.springexcel.tools.ExcelHandler;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 @Controller
@@ -40,12 +44,21 @@ public class ExcelController {
     public String uploadExcel(@RequestPart("files") MultipartFile[] files, HttpServletRequest request) {
 
         String root = request.getSession().getServletContext().getRealPath("/");
-//        if (!files[0].getOriginalFilename().toUpperCase().contains("xlsx")) {
-//            return "faile";
-//        }
+        if (!files[0].getOriginalFilename().toUpperCase().contains(".XL")) {
+            return "faile";
+        }
         logger.info(root);
         logger.info(files[0].getOriginalFilename());
-
+        ExcelHandler<Original> excelHandler = new ExcelHandler<Original>();
+        try {
+            excelHandler.readExcelFromHeader(files[0].getInputStream(), new Original());
+//            logger.info(excelHandler.toString() + "  " + excelHandler.getExcelDataSize());
+            List<Format> list=excelHandler.GetSplitList();
+            excelHandler.sendToMysql(list);
+            logger.info(list.get(1));
+        } catch (Exception e) {
+            logger.error(e.toString());
+        }
         return "index";
     }
 }

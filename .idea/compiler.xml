@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="com.tom.myhabits" target="1.5" />
       <module name="hello-word" target="1.5" />
-      <module name="springexcel" target="1.5" />
+      <module name="springexcel" target="8" />
       <module name="springframwork" target="1.5" />
       <module name="webapp" target="1.5" />
     </bytecodeTargetLevel>

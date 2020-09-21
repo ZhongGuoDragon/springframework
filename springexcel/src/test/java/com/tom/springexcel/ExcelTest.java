@@ -27,18 +27,14 @@ public class ExcelTest {
     @Autowired
     SqlSession sqlSession;
 
-    @Autowired
-    Logger logger;
+
 
     @Test
     public void Test() {
-        this.Test4();
-    }
-
-    public void Test4() {
-        logger.error("xxxxxx");
 
     }
+
+
     public void Test1() {
         Original original = new Original("caonima", new Date());
         List<Original> list = new ArrayList<Original>();
@@ -52,13 +48,9 @@ public class ExcelTest {
     }
 
     public void Test3() {
-        Format format = new Format("zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date());
+        Format format = new Format("xt","zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date());
         FormatMapper mapper = sqlSession.getMapper(FormatMapper.class);
         List<Format> list = new ArrayList<Format>();
-        list.add(new Format("zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date()));
-        list.add(new Format("zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date()));
-        list.add(new Format("zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date()));
-        list.add(new Format("zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date()));
         mapper.insertDataList(list);
         System.out.println(mapper.selectData(0, 10));
     }
