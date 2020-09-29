@@ -11,7 +11,7 @@
 
     <properties>
         <!-- 版本可以自己选择 -->
-        <spring.version>4.2.9.RELEASE</spring.version>
+        <spring.version>5.2.9.RELEASE</spring.version>
 <!--        <spring.version>4.0.0.RELEASE</spring.version>-->
     </properties>
     <dependencies>
@@ -121,7 +121,7 @@
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-war-plugin</artifactId>
-            <version>2.6</version>
+            <version>3.3.1</version>
             <configuration>
                 <failOnMissingWebXml>false</failOnMissingWebXml>
             </configuration>

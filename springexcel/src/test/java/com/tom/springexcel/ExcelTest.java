@@ -11,6 +11,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mybatis.spring.SqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,16 +23,17 @@ import java.util.List;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = {SqlSessionBuilder.class})
+@ContextConfiguration(classes = {SqlSessionBuilder.class,WebAppInitializer.class})
 public class ExcelTest {
     @Autowired
     SqlSession sqlSession;
-
+//    SqlSessionFactoryBean sqlSessionFactoryBean;
 
 
     @Test
     public void Test() {
-
+//        sqlSessionFactoryBean.toString();
+        this.Test3();
     }
 
 
@@ -50,8 +52,11 @@ public class ExcelTest {
     public void Test3() {
         Format format = new Format("xt","zh", "mm", "grwz", "sr", "hys", "ipdz", "zcsj", "zhhc", new Date());
         FormatMapper mapper = sqlSession.getMapper(FormatMapper.class);
-        List<Format> list = new ArrayList<Format>();
-        mapper.insertDataList(list);
+        mapper.insertData(format);
         System.out.println(mapper.selectData(0, 10));
+        List<Format> list = new ArrayList<Format>();
+        list.add(format);
+        mapper.insertDataList(list);
+
     }
 }

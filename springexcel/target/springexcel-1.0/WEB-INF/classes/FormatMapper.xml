@@ -20,11 +20,10 @@
     </resultMap>
     <insert id="insertData" useGeneratedKeys="true">
         insert excel_schema.t_excel_c(zh,mm,grwz,sr,hys,ipdz,cywz,zcsj,zhhc,addtime) values(
-        #{zh},#{mm},#{grwz},#{sr},#{hys},#{ipdz},#{cywz},#{zcsj},#{zhhc},#{addtime}
-        )
+        #{zh},#{mm},#{grwz},#{sr},#{hys},#{ipdz},#{cywz},#{zcsj},#{zhhc},#{addtime})
     </insert>
     <insert id="insertDataList" useGeneratedKeys="true">
-        insert excel_schema.t_excel_c(zh,mm,grwz,sr,hys,ipdz,cywz,zcsj,zhhc,addtime) values
+        insert excel_schema.t_excel_c(zh,mm,grwz,sr,hys,ipdz,cywz,zcsj,zhhc,addtime)values
         <foreach collection="list" item="list" separator=",">
             (#{list.zh},#{list.mm},#{list.grwz},#{list.sr},#{list.hys},#{list.ipdz},#{list.cywz},#{list.zcsj},#{list.zhhc},#{list.addtime})
         </foreach>

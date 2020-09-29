@@ -1,7 +1,7 @@
 package com.tom.springexcel.config;
 
 
-import org.apache.commons.logging.impl.Log4JLogger;
+
 import org.apache.log4j.Logger;
 import org.apache.log4j.spi.LoggerFactory;
 import org.springframework.context.annotation.Bean;

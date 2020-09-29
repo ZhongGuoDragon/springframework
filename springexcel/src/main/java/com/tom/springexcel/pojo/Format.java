@@ -1,16 +1,27 @@
 package com.tom.springexcel.pojo;
 
+import com.alibaba.excel.annotation.ExcelProperty;
+
 import java.util.Date;
 
 public class Format {
+    @ExcelProperty(value = "账号",index = 0)
     private String zh;
+    @ExcelProperty(value = "密码",index = 1)
     private String mm;
+    @ExcelProperty(value = "个人网址",index = 2)
     private String grwz;
+    @ExcelProperty(value = "生日",index = 3)
     private String sr;
+    @ExcelProperty(value = "好友数",index = 4)
     private String hys;
+    @ExcelProperty(value = "IP地址",index =5)
     private String ipdz;
+    @ExcelProperty(value = "常用位置",index =6)
     private String cywz;
+    @ExcelProperty(value = "注册时间",index = 7)
     private String zcsj;
+    @ExcelProperty(value = "账号缓存",index =8)
     private String zhhc;
     private Date addtime;
 
@@ -71,6 +82,7 @@ public class Format {
     public String getCywz() {
         return cywz;
     }
+
 
     public String getZhhc() {
         return zhhc;
